@@ -13,7 +13,7 @@
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   <strong>Invalid USN!!! Try Again!!</strong>
 </div>
-      <form id="f1">
+      <form>
         <h2 class="form-signin-heading">Enter your USN</h2>
         <input type="text" class="input-block-level" placeholder="USN" id="usn" name="usn">
         <input type="button" class="btn btn-large" id="usn-check" value="Log in">
