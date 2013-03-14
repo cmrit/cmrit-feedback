@@ -322,7 +322,7 @@ header('Location:index.php');
 	
 	$("#submit-btn").click(function()
 	{
-		
+		if(!($("#submit-btn").hasClass("disabled")))
 		$("#f2").submit();
 	});
 			
