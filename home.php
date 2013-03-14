@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+$usn=$_GET['usn'];
+if($usn=='')
+header( 'Location: index.php' ) ;
+else
+echo $usn;
+?>
 <html>
   <head>
     <title>Login</title>
