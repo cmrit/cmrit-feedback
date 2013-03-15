@@ -6,7 +6,7 @@ header('Location:index.php');
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Login</title>
+    <title>HomePage</title>
     <link href="css/style.css" rel="stylesheet">
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="js/bootstrap.js"></script>
@@ -70,7 +70,7 @@ header('Location:index.php');
 <tr>
 	<td>1.</td>
       <td>General impression about the content of the event</td>
-      <td><select id="1">
+      <td><select id="q1" class="quest">
 	   <option selected>-- Select --</option>
  <option>1</option>
  <option>2</option>
@@ -88,7 +88,7 @@ header('Location:index.php');
 	<tr>
 	<td>2.</td>
       <td>How well did the content address your expectations?</td>
-      <td><select id="2">
+      <td><select id="q2" class="quest">
 	   <option selected>-- Select --</option>
  <option>1</option>
  <option>2</option>
@@ -106,7 +106,7 @@ header('Location:index.php');
 	<tr>
 	<td>3.</td>
       <td>How do you rate the quality of content presented?</td>
-      <td><select id="3">
+      <td><select id="q3" class="quest">
 	   <option selected>-- Select --</option>
  <option>1</option>
  <option>2</option>
@@ -124,7 +124,7 @@ header('Location:index.php');
 	<tr>
 	<td>4.</td>
       <td>How relevant was the content to your job?</td>
-      <td><select id="4">
+      <td><select id="q4" class="quest">
 	   <option selected>-- Select --</option>
  <option>1</option>
  <option>2</option>
@@ -142,7 +142,7 @@ header('Location:index.php');
 	<tr>
 	<td>5.</td>
       <td>How clear was the presentation of theory?</td>
-      <td><select id="5">
+      <td><select id="q5" class="quest">
 	   <option selected>-- Select --</option>
  <option>1</option>
  <option>2</option>
@@ -160,7 +160,7 @@ header('Location:index.php');
 	<tr>
 	<td>6.</td>
       <td>How relevant were the practical sections?</td>
-      <td><select id="6">
+      <td><select id="q6" class="quest">
 	   <option selected>-- Select --</option>
  <option>1</option>
  <option>2</option>
@@ -184,7 +184,7 @@ header('Location:index.php');
 	<tr>
 	<td>7.</td>
       <td>The presenter's ability to explain clearly was...</td>
-      <td><select id="7">
+      <td><select id="q7" class="quest">
 	   <option selected>-- Select --</option>
  <option>1</option>
  <option>2</option>
@@ -202,7 +202,7 @@ header('Location:index.php');
 	<tr>
 	<td>8.</td>
       <td>How flexible was the presenter to match your needs?</td>
-      <td><select id="8">
+      <td><select id="q8" class="quest">
 	   <option selected>-- Select --</option>
  <option>1</option>
  <option>2</option>
@@ -220,7 +220,7 @@ header('Location:index.php');
 	<tr>
 	<td>9.</td>
       <td>The presenter's knowledge of the subject matter...</td>
-      <td><select id="9">
+      <td><select id="q9" class="quest">
 	   <option selected>-- Select --</option>
  <option>1</option>
  <option>2</option>
@@ -238,7 +238,7 @@ header('Location:index.php');
 	<tr>
 	<td>10.</td>
       <td>How do your rate the presenter's ability to understand participants's questions and remarks?</td>
-      <td><select id="10">
+      <td><select id="q10" class="quest">
 	   <option selected>-- Select --</option>
  <option>1</option>
  <option>2</option>
@@ -256,7 +256,7 @@ header('Location:index.php');
 		<tr>
 	<td>11.</td>
       <td>How responsive was the trainer when prompted by participants to explain something or to help them?</td>
-      <td><select id="11">
+      <td><select id="q11" class="quest">
 	   <option selected>-- Select --</option>
  <option>1</option>
  <option>2</option>
@@ -274,7 +274,7 @@ header('Location:index.php');
 			<tr>
 	<td>12.</td>
       <td>How good was the presenter in practical demos of the subject matter?</td>
-      <td><select id="12">
+      <td><select id="q12" class="quest">
 	   <option selected>-- Select --</option>
  <option>1</option>
  <option>2</option>
@@ -292,12 +292,33 @@ header('Location:index.php');
 </table>
 	  </div>	
 	  <div class="span8 pull-left" style="margin-top:10px;text-align:center;">
-	  <input type="button" class="btn btn-large" id="submit" value="Submit">
+	  <input type="button" class="btn btn-large disabled" id="submit" value="Submit">
 	  </div>
 	  <div class="span3 pull-right final" style="margin-top:10px;">
 	  Overall <span class="result">2.5</span>
 	  </div>
 	  </div>
 </form>
+<script>
+	$(document).ready(function()
+{
+	$(".quest").change(function()
+	{
+		if($("#q1").val() == "-- Select --"  || $("#q2").val()=="-- Select --" || $("#q3").val()=="-- Select --" || $("#q4").val()=="-- Select --" || $("#q5").val()=="-- Select --" || $("#q6").val()=="-- Select --" || $("#q7").val()=="-- Select --" || $("#q8").val()=="-- Select --" || $("#q9").val()=="-- Select --" || $("#q10").val()=="-- Select --" || $("#q11").val()=="-- Select --" || $("#q12").val()=="-- Select --")
+			{
+			$(".result").text("failed");
+			$("#submit").addClass("disabled");
+			}
+			else
+			{
+				var r = parseInt($("#q1").val())+parseInt($("#q2").val())+parseInt($("#q3").val())+parseInt($("#q4").val())+parseInt($("#q5").val())+parseInt($("#q6").val())+parseInt($("#q7").val())+parseInt($("#q8").val())+parseInt($("#q9").val())+parseInt($("#q10").val())+parseInt($("#q11").val())+parseInt($("#q12").val());
+				$(".result").text(r/12);
+				$("#submit").removeClass("disabled");
+			}
+
+	});
+			
+});
+</script>
   </body>
 </html>
