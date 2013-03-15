@@ -1,3 +1,8 @@
+<?php
+session_start();
+if(isset($_SESSION['usn']))
+  unset($_SESSION['usn']);
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,7 +18,7 @@
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   <strong>Invalid USN!!! Try Again!!</strong>
 </div>
-      <form>
+      <form id="f1" action="checklogin.php" method="post">
         <h2 class="form-signin-heading">Enter your USN</h2>
         <input type="text" class="input-block-level" placeholder="USN" id="usn" name="usn">
         <input type="button" class="btn btn-large" id="usn-check" value="Log in">
@@ -28,8 +33,9 @@ $("#usn-check").click(function()
 	var usn=$("#usn").val();
 	if(usn.match(/[1-4][a-zA-Z]{2}[0-9]{2}[a-zA-Z]{3}[0-9]{2}/))
 	{
-	var url="home.php?usn="+usn;
-	window.location=url;
+		$('#f1').submit();
+	//var url="home.php?usn="+usn;
+	//window.location=url;
 		}
 		else
 		$("#invalid-alert").removeClass("msg");

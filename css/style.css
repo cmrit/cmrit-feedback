@@ -6212,3 +6212,11 @@ a.badge:focus {
 	
 	position:relative
 }
+
+.final {
+	font-size: 26px;
+	font-weight: bold;
+}
+.result {
+	color : red;
+}
