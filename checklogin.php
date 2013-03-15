@@ -10,8 +10,7 @@ $usn = stripslashes($usn);
 session_start();
 $_SESSION['usn']=$usn;
 
-$url="location:home.php?usn=";
-$url.=$usn;
+$url="location:home.php";
 header($url);
 
 ?>
