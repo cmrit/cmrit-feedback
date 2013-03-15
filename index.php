@@ -31,7 +31,7 @@ if(isset($_SESSION['usn']))
 $("#usn-check").click(function()
 {
 	var usn=$("#usn").val();
-	if(usn.match(/[1-4][a-zA-Z]{2}[0-9]{2}[a-zA-Z]{3}[0-9]{2}/))
+	if((usn.match(/[1-4][a-zA-Z]{2}[0-9]{2}[a-zA-Z]{3}[0-9]{2}/)) || (usn.match(/[1-4][a-zA-Z]{2}[0-9]{2}[a-zA-Z]{2}[0-9]{3}/)))
 	{
 		$('#f1').submit();
 	//var url="home.php?usn="+usn;
